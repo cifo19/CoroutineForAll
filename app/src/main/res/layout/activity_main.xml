@@ -8,13 +8,13 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/buttonShowPresentation"
+        android:id="@+id/buttonShowSharedEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonShowConsumeResource"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Show Presentation"/>
+        android:text="Show Shared Event"/>
 
     <Button
         android:id="@+id/buttonShowConsumeResource"
@@ -24,6 +24,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Show Consume Resource"/>
+
+    <Button
+        android:id="@+id/buttonShowPresentation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Show Presentation"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"

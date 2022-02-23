@@ -1,10 +1,12 @@
 package com.playground.streams
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.playground.streams.consumeresource.presentation.ConsumeResourceFragment
 import com.playground.streams.databinding.ActivityMainBinding
 import com.playground.streams.presentation.SampleFragment
+import com.playground.streams.sharedevent.SharedEventActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         binding.buttonShowConsumeResource.setOnClickListener {
             showConsumeResourcesFragment()
         }
+        binding.buttonShowSharedEvent.setOnClickListener {
+            startActivity(Intent(this, SharedEventActivity::class.java))
+        }
     }
 
     private fun showSampleFragment() {
@@ -34,7 +39,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun showConsumeResourcesFragment() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, ConsumeResourceFragment.newInstance(), ConsumeResourceFragment.TAG)
+            .add(
+                R.id.fragmentContainer,
+                ConsumeResourceFragment.newInstance(),
+                ConsumeResourceFragment.TAG
+            )
             .addToBackStack(SampleFragment.TAG)
             .commit()
     }
