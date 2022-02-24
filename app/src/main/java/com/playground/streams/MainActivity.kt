@@ -7,6 +7,7 @@ import com.playground.streams.consumeresource.presentation.ConsumeResourceFragme
 import com.playground.streams.databinding.ActivityMainBinding
 import com.playground.streams.presentation.SampleFragment
 import com.playground.streams.sharedevent.SharedEventActivity
+import com.playground.streams.subjects.SubjectsActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         binding.buttonShowSharedEvent.setOnClickListener {
             startActivity(Intent(this, SharedEventActivity::class.java))
         }
+        binding.buttonSubjects.setOnClickListener {
+            startSubjectsActivity()
+        }
     }
 
     private fun showSampleFragment() {
@@ -46,5 +50,10 @@ class MainActivity : AppCompatActivity() {
             )
             .addToBackStack(SampleFragment.TAG)
             .commit()
+    }
+
+    private fun startSubjectsActivity() {
+        val intent = Intent(this, SubjectsActivity::class.java)
+        startActivity(intent)
     }
 }
