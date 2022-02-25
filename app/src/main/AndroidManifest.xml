@@ -29,6 +29,16 @@
             android:exported="true">
 
         </activity>
+
+        <activity
+            android:name=".consumeresource.presentation.ConsumeResourceActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".presentation.PresentationActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

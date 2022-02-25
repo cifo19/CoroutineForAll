@@ -3,9 +3,9 @@ package com.playground.streams
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.playground.streams.consumeresource.presentation.ConsumeResourceFragment
+import com.playground.streams.consumeresource.presentation.ConsumeResourceActivity
 import com.playground.streams.databinding.ActivityMainBinding
-import com.playground.streams.presentation.SampleFragment
+import com.playground.streams.presentation.PresentationActivity
 import com.playground.streams.sharedevent.SharedEventActivity
 import com.playground.streams.subjects.SubjectsActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,39 +21,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonShowPresentation.setOnClickListener {
-            showSampleFragment()
+            startActivity(Intent(this, PresentationActivity::class.java))
         }
         binding.buttonShowConsumeResource.setOnClickListener {
-            showConsumeResourcesFragment()
+            startActivity(Intent(this, ConsumeResourceActivity::class.java))
         }
         binding.buttonShowSharedEvent.setOnClickListener {
             startActivity(Intent(this, SharedEventActivity::class.java))
         }
         binding.buttonSubjects.setOnClickListener {
-            startSubjectsActivity()
+            startActivity(Intent(this, SubjectsActivity::class.java))
         }
-    }
-
-    private fun showSampleFragment() {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, SampleFragment.newInstance(), SampleFragment.TAG)
-            .addToBackStack(SampleFragment.TAG)
-            .commit()
-    }
-
-    private fun showConsumeResourcesFragment() {
-        supportFragmentManager.beginTransaction()
-            .add(
-                R.id.fragmentContainer,
-                ConsumeResourceFragment.newInstance(),
-                ConsumeResourceFragment.TAG
-            )
-            .addToBackStack(SampleFragment.TAG)
-            .commit()
-    }
-
-    private fun startSubjectsActivity() {
-        val intent = Intent(this, SubjectsActivity::class.java)
-        startActivity(intent)
     }
 }
